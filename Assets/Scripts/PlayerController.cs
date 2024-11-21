@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
         //Get the movement input value
         movementInput = input.Get<Vector2>();
         //movementX = movementInput.x;
-      //  movementY = movementInput.y;
+        //movementY = movementInput.y;
         rb2d.AddForce(movementInput);
     }
 
@@ -33,5 +34,13 @@ public class PlayerController : MonoBehaviour
     {
         //apply movement input value to the velocity of the player every frame
         rb2d.velocity = movementInput * movementSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
