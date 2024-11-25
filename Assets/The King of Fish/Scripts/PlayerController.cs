@@ -38,8 +38,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //if player collides with enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
+            //destroy the enemy
             other.gameObject.SetActive(false);
         }
     }

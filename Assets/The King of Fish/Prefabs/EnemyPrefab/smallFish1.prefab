@@ -102,7 +102,7 @@ MonoBehaviour:
   spawnRate: 3
   speed: 3
   enemySize: 0
-  Fish: {fileID: 0}
+  EnemyPrefab: []
 --- !u!58 &-5292571499831214220
 CircleCollider2D:
   m_ObjectHideFlags: 0
