@@ -20,6 +20,11 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();  
     }
 
+    private void Update()
+    {
+        UpdateFacingDirection();
+    }
+
     //OnMove method
     private void OnMove(InputValue input)
     {
@@ -44,5 +49,13 @@ public class PlayerController : MonoBehaviour
             //destroy the enemy
             other.gameObject.SetActive(false);
         }
+    }
+
+    private void UpdateFacingDirection()
+    {
+        //flip the sprite
+        var scale = transform.localScale;
+        if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Sign(movementInput.x);
+        transform.localScale = scale;
     }
 }
