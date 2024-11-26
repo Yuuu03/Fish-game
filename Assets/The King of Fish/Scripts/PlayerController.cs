@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
     {
         //Get the movement input value
         movementInput = input.Get<Vector2>();
-        //movementX = movementInput.x;
-        //movementY = movementInput.y;
         rb2d.AddForce(movementInput);
     }
 
@@ -53,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateFacingDirection()
     {
-        //flip the sprite
+        //flip the sprite based on the player movement
         var scale = transform.localScale;
         if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Sign(movementInput.x);
         transform.localScale = scale;
