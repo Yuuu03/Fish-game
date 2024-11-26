@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8282665686425639882}
   - component: {fileID: -4185659427564911176}
-  - component: {fileID: 6233674845303325089}
   - component: {fileID: -3512456040577810558}
   - component: {fileID: -542907686517270441}
+  - component: {fileID: -8848815633010085507}
   m_Layer: 0
   m_Name: normalFish1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,24 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6233674845303325089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1881878003814846382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bac9cbbe2f92d4846962b65a48d178ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sizeRange: {x: 2, y: 3}
-  spawnRate: 5
-  speed: 3
-  enemySize: 0
-  EnemyPrefab:
-  - {fileID: 0}
 --- !u!58 &-3512456040577810558
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -139,7 +121,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 0.5
 --- !u!50 &-542907686517270441
 Rigidbody2D:
   serializedVersion: 4
@@ -167,3 +149,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-8848815633010085507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881878003814846382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bac9cbbe2f92d4846962b65a48d178ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sizeRange: {x: 2, y: 3}
+  enemySize: 0
+  speed: 2
