@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,17 +9,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float scaleRate = 1.2f;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
-    //private float movementX;
-    //private float movementY;
-    private float accelerationTime = 0;
+    
+    /*private float accelerationTime = 0;
     private float shieldTime = 0;
-    private string playerState = "normal";
+    private string playerState = "normal";*/
 
     // Start is called before the first frame update
     void Start()
     {
         //initialize Rigidbody
         rb2d = GetComponent<Rigidbody2D>();  
+
     }
 
     private void Update()

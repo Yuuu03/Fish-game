@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -14,7 +15,8 @@ public class GameManager : MonoBehaviour
     //variables for player
     public int live = 3;
     public int score = 0;
-    
+    public TextMeshProUGUI scoreText;
+
     //reference to enemy prefab
     public GameObject[] EnemyPrefab;
 
@@ -52,9 +54,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateScoreText();
     }
-
+   
     //spawn enemy fish method
     private void SpawnFish()
     {
@@ -85,6 +87,11 @@ public class GameManager : MonoBehaviour
         score += 100;
         Debug.Log($"Current score:{score}");
         
+    }
+    //update score text method
+    void UpdateScoreText()
+    {
+        scoreText.text = score.ToString();
     }
 
     //game over method
