@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 8.0f;
+    [SerializeField] private float scaleRate = 1.2f;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
     //private float movementX;
@@ -44,8 +45,22 @@ public class PlayerController : MonoBehaviour
         //if player collides with enemy
         if (other.gameObject.CompareTag("Enemy"))
         {
-            //destroy the enemy
-            other.gameObject.SetActive(false);
+            //if player size is larger or greater than enemy size
+            if(transform.localScale.sqrMagnitude >= other.transform.localScale.sqrMagnitude)
+            {
+                //destroy the enemy
+                other.gameObject.SetActive(false);
+                //increase player scale 
+                transform.localScale = Vector3.one * scaleRate;
+                //update player score
+                GameManager.Instance.UpdateScore();
+            }
+            else
+            {
+                //update player life
+                GameManager.Instance.UpdatePlayerLife();
+            }
+            
         }
     }
 
@@ -53,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         //flip the sprite based on the player movement
         var scale = transform.localScale;
-        if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Sign(movementInput.x);
+        if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Abs(scale.x) * Mathf.Sign(movementInput.x);
         transform.localScale = scale;
     }
 }

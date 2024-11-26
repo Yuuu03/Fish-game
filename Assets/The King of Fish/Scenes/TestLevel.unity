@@ -2767,10 +2767,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a517350b375efc4682517a4cbb700d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
   spawnRate: 3
+  live: 3
+  score: 0
   EnemyPrefab:
+  - {fileID: 3409188816820675375, guid: 1e43554c2de696341b969ee092b72f1b, type: 3}
+  - {fileID: 5247381060818599595, guid: d473b684d5b87e143aa65631ecd18944, type: 3}
   - {fileID: 1881878003814846382, guid: 092b13b23fddc7d45a8d1c3cd2277e63, type: 3}
   - {fileID: 1502300096240856861, guid: 93dd340e96f5e2a42ab65893ce9c6b0d, type: 3}
+  - {fileID: 1105409153014643631, guid: d6adb9dca1db66a46bfabe4052ccfbd4, type: 3}
   - {fileID: 5816685589651858387, guid: 39b5129061cd0fe4db51eeaea694b442, type: 3}
   - {fileID: 4549454055340642452, guid: c3d2affff93fdf641a47919efee5fdfd, type: 3}
   - {fileID: 6408219819575610161, guid: cd35753510d7e694ca871045f609c757, type: 3}
@@ -3301,6 +3307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
+  scaleRate: 1.2
 --- !u!114 &1373850048
 MonoBehaviour:
   m_ObjectHideFlags: 0
