@@ -1,14 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
     public bool gameOver = false;
-    public float timeLeft = 300.0f;
+    public float timeLeft = 300;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     //variables for enemy
@@ -59,7 +61,8 @@ public class GameManager : MonoBehaviour
     {
         //call UpdateScoreText method to update the score constantly
         UpdateScoreText();
-        
+        //call UpdateTimeText method to update the time constantly
+        UpdateTimeText();
     }
    
     //spawn enemy fish method
@@ -102,11 +105,20 @@ public class GameManager : MonoBehaviour
     //update time remaining method
     public void UpdateTime()
     {
-        //reduce time if there is time left
-        if (timeLeft > 0)
+        //if game is not over
+        if (gameOver == false)
         {
-            timeLeft -= Time.deltaTime;
-        }
+            //reduce time if there is time left
+            if (timeLeft > 0)
+            {
+                timeLeft -= Time.deltaTime;
+            }
+            //set time left to zero if there is no time left
+            else
+            {
+                timeLeft = 0;
+            }            
+        }        
         else
         {
             timeLeft = 0;
@@ -116,11 +128,12 @@ public class GameManager : MonoBehaviour
     //update time text method
     void UpdateTimeText()
     {
+        UpdateTime();
         //calculate the minutes and seconds
         int minutes = Mathf.FloorToInt(timeLeft / 60);
         int seconds = Mathf.FloorToInt(timeLeft % 60);
         //display time in the screen
-        timeText.text = ("{0:00}:{1:00}", minutes, seconds).ToString();
+        timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 
     //game over method
