@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/The King of Fish/Scenes/Menu.unity
+    guid: cc6b88db3e60b19449cb0ac44d4fffd1
+  - enabled: 1
+    path: Assets/The King of Fish/Scenes/EasyLevel.unity
+    guid: d046fbf40c0c15941bad529402f82587
   m_configObjects: {}
