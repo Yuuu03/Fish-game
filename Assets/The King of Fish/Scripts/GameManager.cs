@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
     public bool gameOver = false;
+    public float timeLeft = 300.0f;
+    public TextMeshProUGUI timeText;
+    public TextMeshProUGUI scoreText;
     //variables for enemy
     private float randomx;
     public float spawnRate = 2.0f;
@@ -15,7 +18,7 @@ public class GameManager : MonoBehaviour
     //variables for player
     public int live = 3;
     public int score = 0;
-    public TextMeshProUGUI scoreText;
+    
 
     //reference to enemy prefab
     public GameObject[] EnemyPrefab;
@@ -54,7 +57,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //call UpdateScoreText method to update the score constantly
         UpdateScoreText();
+        
     }
    
     //spawn enemy fish method
@@ -92,6 +97,30 @@ public class GameManager : MonoBehaviour
     void UpdateScoreText()
     {
         scoreText.text = score.ToString();
+    }
+
+    //update time remaining method
+    public void UpdateTime()
+    {
+        //reduce time if there is time left
+        if (timeLeft > 0)
+        {
+            timeLeft -= Time.deltaTime;
+        }
+        else
+        {
+            timeLeft = 0;
+        }
+    }
+
+    //update time text method
+    void UpdateTimeText()
+    {
+        //calculate the minutes and seconds
+        int minutes = Mathf.FloorToInt(timeLeft / 60);
+        int seconds = Mathf.FloorToInt(timeLeft % 60);
+        //display time in the screen
+        timeText.text = ("{0:00}:{1:00}", minutes, seconds).ToString();
     }
 
     //game over method
