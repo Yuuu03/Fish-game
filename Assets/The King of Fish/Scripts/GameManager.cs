@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 using Random = UnityEngine.Random;
 
@@ -63,6 +64,8 @@ public class GameManager : MonoBehaviour
         UpdateScoreText();
         //call UpdateTimeText method to update the time constantly
         UpdateTimeText();
+        //stop spawning fish if game is over
+        if (gameOver == true) CancelInvoke("SpawnFish");
     }
    
     //spawn enemy fish method
@@ -137,9 +140,10 @@ public class GameManager : MonoBehaviour
     }
 
     //game over method
-    private void GameOver()
+    public void GameOver()
     {
         gameOver = true;
         Debug.Log("Game is over!");
+        SceneManager.LoadSceneAsync(2);
     }
 }
