@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 8.0f;
-    [SerializeField] private float scaleRate = 1.2f;
+    [SerializeField] private float scaleRate;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
     private float playerSize;
@@ -56,7 +56,9 @@ public class PlayerController : MonoBehaviour
             {
                 //destroy the enemy
                 other.gameObject.SetActive(false);
-                //increase player scale 
+                //get scale rate by adding the 30% of the enemy scale
+                scaleRate += (other.transform.localScale.sqrMagnitude) / 30f;
+                //increase player scale
                 transform.localScale = Vector3.one * scaleRate;
                 //update player score
                 GameManager.Instance.UpdateScore();
