@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     private GameObject fishSpawn;
     //variables for player
     public int live = 3;
-    public int score = 0;
+    [HideInInspector]public int score = 0;
     
 
     //reference to enemy prefab
