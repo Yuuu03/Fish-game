@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float scaleRate = 1.2f;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
+    private float playerSize;
+    private Vector2 maximumSize = new Vector2(7.0f, 7.0f);
     
     /*private float accelerationTime = 0;
     private float shieldTime = 0;
@@ -22,9 +24,12 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update()
+    void Update()
     {
+        //constantly update player facing direction
         UpdateFacingDirection();
+        //constantly check player size against the maximum size
+        CheckPlayerSize();
     }
 
     //OnMove method
@@ -71,5 +76,17 @@ public class PlayerController : MonoBehaviour
         var scale = transform.localScale;
         if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Abs(scale.x) * Mathf.Sign(movementInput.x);
         transform.localScale = scale;
+    }
+
+    private void CheckPlayerSize()
+    {
+        playerSize = transform.localScale.sqrMagnitude;
+        //check if the player size is equal or greater than the maximum size
+        if (playerSize >= maximumSize.sqrMagnitude)
+        {
+            Debug.Log("The player size is equal to the maximum size!");
+            //call game over method
+            GameManager.Instance.GameOver();
+        }
     }
 }
