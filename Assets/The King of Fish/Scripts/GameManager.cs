@@ -13,9 +13,11 @@ public class GameManager : MonoBehaviour
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
     public bool gameOver = false;
-    public float timeLeft = 300;
+    private string gameLevel;
+    public float timeLeft = 480;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
+    [HideInInspector] public int score = 0;
     //variables for enemy spawn
     private float randomx;
     public float spawnRate = 2.0f;
@@ -25,7 +27,7 @@ public class GameManager : MonoBehaviour
     public Image[] liveIcon;
     public Sprite fullLife;
     public Sprite emptyLife;
-    [HideInInspector]public int score = 0;
+    
     
 
     //reference to enemy prefab
@@ -46,7 +48,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
             //make the game manager persistent
             //DontDestroyOnLoad(this.gameObject);
-        }
+        }     
+        
     }
 
     // Start is called before the first frame update
@@ -59,7 +62,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("The enemy prefab is empty!");
-        }
+        }       
     }
 
     // Update is called once per frame
@@ -111,8 +114,7 @@ public class GameManager : MonoBehaviour
     public void UpdateScore()
     {
         score += 100;
-        Debug.Log($"Current score:{score}");
-        
+        Debug.Log($"Current score:{score}");        
     }
     //update score text method
     void UpdateScoreText()
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour
     //update time remaining method
     public void UpdateTime()
     {
+        
         //if game is not over
         if (gameOver == false)
         {
@@ -159,6 +162,9 @@ public class GameManager : MonoBehaviour
     {
         gameOver = true;
         Debug.Log("Game is over!");
+        //load game over scene
         SceneManager.LoadSceneAsync(2);
+        //save score to playerprefs
+        PlayerPrefs.SetInt("Score", score);
     }
 }

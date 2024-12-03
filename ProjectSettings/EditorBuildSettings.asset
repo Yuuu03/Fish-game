@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/The King of Fish/Scenes/GameOver.unity
     guid: ef419ebcb6cefed48a6a2928a08b393f
+  - enabled: 1
+    path: Assets/The King of Fish/Scenes/Pause.unity
+    guid: 81006e20ba1461345adc212cc3a3c95f
   m_configObjects: {}
