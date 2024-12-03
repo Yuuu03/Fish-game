@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/The King of Fish/Scenes/Menu.unity
     guid: cc6b88db3e60b19449cb0ac44d4fffd1
   - enabled: 1
-    path: Assets/The King of Fish/Scenes/EasyLevel.unity
+    path: Assets/The King of Fish/Scenes/TestLevel.unity
     guid: d046fbf40c0c15941bad529402f82587
   - enabled: 1
     path: Assets/The King of Fish/Scenes/GameOver.unity

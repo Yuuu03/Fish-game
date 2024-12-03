@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using Random = UnityEngine.Random;
+using Image = UnityEngine.UI.Image;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,12 +16,15 @@ public class GameManager : MonoBehaviour
     public float timeLeft = 300;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
-    //variables for enemy
+    //variables for enemy spawn
     private float randomx;
     public float spawnRate = 2.0f;
     private GameObject fishSpawn;
-    //variables for player
+    //variables for player health
     public int live = 3;
+    public Image[] liveIcon;
+    public Sprite fullLife;
+    public Sprite emptyLife;
     [HideInInspector]public int score = 0;
     
 
@@ -40,7 +45,7 @@ public class GameManager : MonoBehaviour
             //set the object's instance of the Game Manager class to be the instance
             Instance = this;
             //make the game manager persistent
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
         }
     }
 
@@ -66,6 +71,16 @@ public class GameManager : MonoBehaviour
         UpdateTimeText();
         //stop spawning fish if game is over
         if (gameOver == true) CancelInvoke("SpawnFish");
+
+        foreach (Image img in liveIcon)
+        {
+            img.sprite = emptyLife;
+        }
+        for (int i = 0; i < live; i++)
+        {
+            liveIcon[i].sprite = fullLife;
+        }
+
     }
    
     //spawn enemy fish method
