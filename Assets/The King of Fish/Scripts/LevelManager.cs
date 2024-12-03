@@ -24,4 +24,11 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Quit the game!");
         Application.Quit();
     }
+
+    //add a pause game method
+    public void PauseGame()
+    {
+        Debug.Log("The game is paused!");
+        SceneManager.LoadSceneAsync(3);
+    }
 }
