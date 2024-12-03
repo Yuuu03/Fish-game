@@ -29,6 +29,19 @@ public class LevelManager : MonoBehaviour
     public void PauseGame()
     {
         Debug.Log("The game is paused!");
+        //load pause screen
         SceneManager.LoadSceneAsync(3);
+        //freeze time
+        Time.timeScale = 0;
+    }
+
+    //add a resume game method
+    public void ResumeGame()
+    {
+        Debug.Log("Game continues!");
+        //load game screen
+        PlayGame();
+        //set time to normal
+        Time.timeScale = 1;
     }
 }
