@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     [HideInInspector] public int score = 0;
     //variables for enemy spawn
-    private float randomx;
+    private float randomX;
     public float spawnRate = 2.0f;
     private GameObject fishSpawn;
     //variables for player health
@@ -93,11 +93,11 @@ public class GameManager : MonoBehaviour
         GameObject fish = EnemyPrefab[Random.Range(0, EnemyPrefab.Length)];
 
         //spawn fish at random position
-        randomx = (Random.Range(0, 2) == 0 ? -11.0f : 11.0f);
-        Vector2 ramdomPosition = new Vector2(randomx, Random.Range(6.0f, -4.0f));
+        randomX = (Random.Range(0, 2) == 0 ? -11.0f : 11.0f);
+        Vector2 ramdomPosition = new Vector2(randomX, Random.Range(6.0f, -4.0f));
         fishSpawn = Instantiate(fish, ramdomPosition, Quaternion.identity);
         //change fish facing direction if it spawns at the right
-        if (randomx == 11.0f) fishSpawn.transform.Rotate(0, 180, 0);
+        if (randomX == 11.0f) fishSpawn.transform.Rotate(0, 180, 0);
     }
 
     //update player life method
