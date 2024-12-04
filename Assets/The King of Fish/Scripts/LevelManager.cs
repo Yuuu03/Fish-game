@@ -24,13 +24,13 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Quit the game!");
         Application.Quit();
     }
-
+    
     //add a pause game method
     public void PauseGame()
     {
         Debug.Log("The game is paused!");
-        //load pause screen
-        SceneManager.LoadSceneAsync(3);
+        //load pause scene
+        SceneManager.LoadSceneAsync(3, LoadSceneMode.Additive);
         //freeze time
         Time.timeScale = 0;
     }
@@ -39,9 +39,10 @@ public class LevelManager : MonoBehaviour
     public void ResumeGame()
     {
         Debug.Log("Game continues!");
-        //load game screen
-        PlayGame();
+        //Unload the pasue scene
+        SceneManager.UnloadSceneAsync(3);
         //set time to normal
         Time.timeScale = 1;
     }
+    
 }
