@@ -12,15 +12,17 @@ public class GameManager : MonoBehaviour
 {
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
-    public bool gameOver = false;
-    private string gameLevel;
-    public float timeLeft = 480;
+    //reference to level manager
+    public LevelManager levelManager;
+
+    public bool gameOver = false;   
+    public float timeLeft = 300f;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     [HideInInspector] public int score = 0;
     //variables for enemy spawn
     private float randomX;
-    public float spawnRate = 2.0f;
+    public float spawnRate;
     private GameObject fishSpawn;
     //variables for player health
     public int live = 3;
@@ -28,8 +30,6 @@ public class GameManager : MonoBehaviour
     public Sprite fullLife;
     public Sprite emptyLife;
     
-    
-
     //reference to enemy prefab
     public GameObject[] EnemyPrefab;
 
@@ -55,6 +55,27 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if Level is equal to Easy
+        if(levelManager.level == "Easy")
+        {
+            //Set spawn rate and time left
+            spawnRate = 5f;
+            timeLeft = 480f;
+            Debug.Log("The current level is Easy.");
+        }
+        else if(levelManager.level == "Difficult")
+        {
+            //Set spawn rate the time left if level is difficult
+            spawnRate = 3f;
+            timeLeft = 300f;
+            Debug.Log("The current level is Difficult.");
+        }
+        else
+        {
+            Debug.Log("The current level is unknown!");
+        }
+
+        //if enemy prefab is not null
         if (EnemyPrefab.Length > 0)
         {
             InvokeRepeating("SpawnFish", spawnRate, spawnRate);

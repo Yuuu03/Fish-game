@@ -11,10 +11,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private float playerSize;
     private Vector2 maximumSize = new Vector2(7.0f, 7.0f);
-    
-    /*private float accelerationTime = 0;
+        
+    private float accelerationTime = 0;
     private float shieldTime = 0;
-    private string playerState = "normal";*/
+    private string playerState = "normal";
+    private string bubble;
 
     // Start is called before the first frame update
     void Start()
@@ -67,8 +68,39 @@ public class PlayerController : MonoBehaviour
             {
                 //update player life
                 GameManager.Instance.UpdatePlayerLife();
-            }
-            
+            }         
+        }
+        else if (other.gameObject.CompareTag("Bubble"))
+        {
+            //call bubble effect method
+            BubbleEffect();
+            //damage bubble
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    private void BubbleEffect()
+    {
+        //If bubble type is equal to shield
+        if(bubble == "shield")
+        {
+            //set state and shield time
+            playerState = "Shield";
+            shieldTime = 5f;
+            Debug.Log("Shield effect!");
+        }
+        else if(bubble == "acceleration")
+        {
+            //set state and player speed if bubble type is equal to accerlation
+            playerState = "Acceleration";
+            movementSpeed *= 1.5f;
+            accelerationTime = 5f;
+            Debug.Log("Acceleration effect!");
+        }
+        else
+        {
+            //reduce player life if bubble type is bad
+            GameManager.Instance.UpdatePlayerLife();
         }
     }
 

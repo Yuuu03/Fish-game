@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d04063a7fb94e4fa69463b8dfbbb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 
 --- !u!1 &354693053
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,8 +312,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 175366242}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadEasyLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1138,8 +1139,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 175366242}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadDifficultLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

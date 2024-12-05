@@ -4,7 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-{    
+{
+    //Assign level variable
+    [HideInInspector]public string level;
+    //add a LoadEasyLevel method
+    public void LoadEasyLevel()
+    {
+        level = "Easy";
+        SceneManager.LoadSceneAsync(1);
+    }
+
+    //add a LoadDifficultLevel method
+    public void LoadDifficultLevel()
+    {
+        level = "Difficult";
+        SceneManager.LoadSceneAsync(1);
+    }
+
     //add a open menu method
     public void LoadMenuScene()
     {
