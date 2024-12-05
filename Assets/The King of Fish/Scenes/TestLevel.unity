@@ -3731,6 +3731,57 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1404511597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404511599}
+  - component: {fileID: 1404511598}
+  m_Layer: 0
+  m_Name: BubbleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1404511598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404511597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76baee183b7c78546abd2c22bb7c14f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goodBubblePrefab:
+  - {fileID: 2733423718482576490, guid: b9c07330b4a503748a4c2cf6da0509ce, type: 3}
+  - {fileID: 756595268068936311, guid: 0306ce481e9f44f4d9c3d3fa663170ac, type: 3}
+  badBubblePrefab:
+  - {fileID: 9133613445973152713, guid: 5159a1ff097c0664b8a07d24ff18a8f4, type: 3}
+  spawnRate: 5
+  spawnTime: 10
+--- !u!4 &1404511599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404511597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.4060655, y: 1.3835006, z: -0.07940546}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1517942446
 GameObject:
   m_ObjectHideFlags: 0
@@ -5274,7 +5325,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1971691866
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5474,5 +5525,6 @@ SceneRoots:
   - {fileID: 738516332}
   - {fileID: 1292975854}
   - {fileID: 1246740281}
+  - {fileID: 1404511599}
   - {fileID: 596939325}
   - {fileID: 1808538035}

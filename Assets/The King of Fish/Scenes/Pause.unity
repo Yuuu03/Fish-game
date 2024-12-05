@@ -456,7 +456,7 @@ Canvas:
   m_GameObject: {fileID: 414958827}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 2117447677}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -468,7 +468,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!224 &414958831
 RectTransform:
@@ -858,7 +858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1658313862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1470,7 +1470,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2117447678}
   - component: {fileID: 2117447677}
-  - component: {fileID: 2117447676}
   - component: {fileID: 2117447679}
   m_Layer: 0
   m_Name: Main Camera
@@ -1479,14 +1478,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &2117447676
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117447675}
-  m_Enabled: 1
 --- !u!20 &2117447677
 Camera:
   m_ObjectHideFlags: 0

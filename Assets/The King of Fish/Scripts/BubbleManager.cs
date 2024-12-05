@@ -8,38 +8,39 @@ public class BubbleManager : MonoBehaviour
     public GameObject[] goodBubblePrefab;
     public GameObject[] badBubblePrefab;
     //variables for bubble spawn
-    private float randomX;
-    public float spawnRate = 30f;
+    public float spawnRate = 5f;
+    public float spawnTime = 10f;
     private GameObject bubbleSpawn;
     private GameObject[] bubbleTypePrefab;
     private GameObject bubbleType;
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    void Start()
     {
-        if (GameManager.Instance.timeLeft > 240)
+        StartCoroutine(SpawnTime());
+    }
+
+    private IEnumerator SpawnTime()
+    {
+        yield return new WaitForSeconds(spawnTime);
+        while (true)
         {
-            if (goodBubblePrefab.Length > 0 && badBubblePrefab.Length > 0)
-            {
-                InvokeRepeating("SpawnBubble", spawnRate, spawnRate);
-            }
-            else
-            {
-                Debug.Log("The bubble prefab is empty!");
-            }
+            Debug.Log("Bubble is spawned!");
+            SpawnBubble();
+            yield return new WaitForSeconds(spawnRate);
         }
+        
     }
 
     private void SpawnBubble()
-    { 
+    {       
         //spawn good bubble or bad bubble
         bubbleTypePrefab = (Random.Range(0, 2) == 0 ? goodBubblePrefab : badBubblePrefab);
         //spawn bubbles from bubble prefab
         bubbleType = bubbleTypePrefab[Random.Range(0, bubbleTypePrefab.Length)];
-        //spawn bubbles at random position
-        randomX = (Random.Range(0, 2) == 0 ? -10.0f : 10.0f);
-        Vector2 ramdomPosition = new Vector2(randomX, Random.Range(6.0f, -6.0f));
+        //spawn bubbles at random position        
+        Vector2 ramdomPosition = new Vector2(Random.Range(-10.0f, 10.0f), -6.0f);
         bubbleSpawn = Instantiate(bubbleType, ramdomPosition, Quaternion.identity);
-
+        
     }
 }
