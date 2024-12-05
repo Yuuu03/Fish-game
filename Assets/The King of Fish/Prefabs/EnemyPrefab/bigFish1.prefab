@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 11966356982684614}
   - component: {fileID: -1630110383520102112}
   - component: {fileID: 8163377370749550224}
-  - component: {fileID: -3033553449758483843}
+  - component: {fileID: 4760064496812297941}
   - component: {fileID: -7995062157570012488}
   m_Layer: 0
   m_Name: bigFish1
@@ -114,8 +114,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &-3033553449758483843
-CircleCollider2D:
+--- !u!61 &4760064496812297941
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,8 +147,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &-7995062157570012488
 MonoBehaviour:
   m_ObjectHideFlags: 0

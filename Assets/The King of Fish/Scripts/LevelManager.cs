@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadSceneAsync(0);
     }
 
-    //add a play game method
+    //add a play game method to load test level scene
     public void PlayGame()
     {
         Debug.Log("Game starts!");
