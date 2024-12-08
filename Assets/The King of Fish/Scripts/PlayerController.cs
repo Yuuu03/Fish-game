@@ -5,6 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    //variables for player
     [SerializeField] private float movementSpeed = 5.0f;
     [SerializeField] private float scaleRate;
     private Rigidbody2D rb2d;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float playerSize;
     private Vector2 maximumSize = new Vector2(7.0f, 7.0f);
         
+    //variables for power ups
     private float accelerationTime = 0;
     private float shieldTime = 0;
     private bool hasShield = false;

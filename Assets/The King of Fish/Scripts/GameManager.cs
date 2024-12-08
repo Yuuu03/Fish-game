@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
 {
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
-    //reference to level manager
-    public LevelManager levelManager;
-
+    public string level;
     public bool gameOver = false;   
     public float timeLeft = 300f;
     public TextMeshProUGUI timeText;
@@ -55,15 +53,17 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = PlayerPrefs.GetString("Level", "None");
+
         //if Level is equal to Easy
-        if(levelManager.level == "Easy")
+        if(level == "Easy")
         {
             //Set spawn rate and time left
             spawnRate = 5f;
             timeLeft = 480f;
             Debug.Log("The current level is Easy.");
         }
-        else if(levelManager.level == "Difficult")
+        else if(level == "Difficult")
         {
             //Set spawn rate the time left if level is difficult
             spawnRate = 3f;

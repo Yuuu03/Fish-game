@@ -4,20 +4,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
-{
-    //Assign level variable
-    [HideInInspector]public string level;
+{   
     //add a LoadEasyLevel method
     public void LoadEasyLevel()
     {
-        level = "Easy";
+        PlayerPrefs.SetString("Level", "Easy");
         SceneManager.LoadSceneAsync(1);
     }
 
     //add a LoadDifficultLevel method
     public void LoadDifficultLevel()
     {
-        level = "Difficult";
+        PlayerPrefs.SetString("Level", "Easy");
         SceneManager.LoadSceneAsync(1);
     }
 
