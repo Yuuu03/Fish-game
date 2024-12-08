@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class BubbleManager : MonoBehaviour
 {
-    //reference to good and bad bubble prefabs
-    public GameObject[] goodBubblePrefab;
-    public GameObject[] badBubblePrefab;
+    //reference to bubble prefabs
+    public GameObject[] bubblePrefabs;
     //variables for bubble spawn
     public float spawnRate = 5f;
     public float spawnTime = 10f;
     private GameObject bubbleSpawn;
-    private GameObject[] bubbleTypePrefab;
-    private GameObject bubbleType;
+    private GameObject bubble;
 
     // Start is called before the first frame update
     void Start()
@@ -33,14 +31,12 @@ public class BubbleManager : MonoBehaviour
     }
 
     private void SpawnBubble()
-    {       
-        //spawn good bubble or bad bubble
-        bubbleTypePrefab = (Random.Range(0, 2) == 0 ? goodBubblePrefab : badBubblePrefab);
+    {
         //spawn bubbles from bubble prefab
-        bubbleType = bubbleTypePrefab[Random.Range(0, bubbleTypePrefab.Length)];
+        bubble = bubblePrefabs[Random.Range(0, bubblePrefabs.Length)];
         //spawn bubbles at random position        
         Vector2 ramdomPosition = new Vector2(Random.Range(-10.0f, 10.0f), -6.0f);
-        bubbleSpawn = Instantiate(bubbleType, ramdomPosition, Quaternion.identity);
+        bubbleSpawn = Instantiate(bubble, ramdomPosition, Quaternion.identity);
         
     }
 }

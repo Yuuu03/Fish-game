@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1780376047136019665}
   - component: {fileID: 5306348023800817784}
   m_Layer: 0
-  m_Name: AccelerationBubble
+  m_Name: Acceleration
   m_TagString: Bubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.87, y: -9.09, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,4 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ecb15b27d8cee45be45d4a3a6d710b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bubbleType: acceleration
   speed: 2

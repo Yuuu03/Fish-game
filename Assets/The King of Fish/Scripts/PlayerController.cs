@@ -5,7 +5,7 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 8.0f;
+    [SerializeField] private float movementSpeed = 5.0f;
     [SerializeField] private float scaleRate;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         
     private float accelerationTime = 0;
     private float shieldTime = 0;
-    private string playerState = "normal";
+    private bool hasShield = false;
     private string bubble;
 
     // Start is called before the first frame update
@@ -31,6 +31,28 @@ public class PlayerController : MonoBehaviour
         UpdateFacingDirection();
         //constantly check player size against the maximum size
         CheckPlayerSize();
+        
+        //reduce acceleration time when it is greater than 0
+        if(accelerationTime > 0)
+        {
+            accelerationTime -= Time.deltaTime;
+        }
+        else
+        {
+            //set speed to normal when there is no acceleration effect
+            movementSpeed = 5.0f;
+        }
+        //reduce shield time when it is greater than 0
+        if (shieldTime > 0) 
+        {
+            shieldTime -= Time.deltaTime;
+        }
+        else
+        {
+            //set isShield to false
+            hasShield = false;
+        }
+        
     }
 
     //OnMove method
@@ -66,12 +88,23 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //update player life
-                GameManager.Instance.UpdatePlayerLife();
+                //check if player has shield
+                if (hasShield)
+                {
+                    return;
+                }
+                else
+                {
+                    //update player life
+                    GameManager.Instance.UpdatePlayerLife();
+                }
+                
             }         
         }
         else if (other.gameObject.CompareTag("Bubble"))
         {
+            bubble = other.gameObject.GetComponent<Bubble>().bubbleType;
+            Debug.Log($"The bubble type is collided with: { bubble}");
             //call bubble effect method
             BubbleEffect();
             //damage bubble
@@ -84,16 +117,16 @@ public class PlayerController : MonoBehaviour
         //If bubble type is equal to shield
         if(bubble == "shield")
         {
-            //set state and shield time
-            playerState = "Shield";
+            //set shield time and change isShield to true
             shieldTime = 5f;
+            hasShield = true;
             Debug.Log("Shield effect!");
         }
         else if(bubble == "acceleration")
         {
-            //set state and player speed if bubble type is equal to accerlation
-            playerState = "Acceleration";
+            //set player speed if bubble type is equal to accerlation
             movementSpeed *= 1.5f;
+            Debug.Log($"Current movement speed: {movementSpeed}");
             accelerationTime = 5f;
             Debug.Log("Acceleration effect!");
         }
