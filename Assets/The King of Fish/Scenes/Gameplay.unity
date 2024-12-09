@@ -3043,7 +3043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d04063a7fb94e4fa69463b8dfbbb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 
 --- !u!4 &937094771
 Transform:
   m_ObjectHideFlags: 0
@@ -3228,7 +3227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a517350b375efc4682517a4cbb700d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelManager: {fileID: 937094770}
+  level: 
   gameOver: 0
   timeLeft: 300
   timeText: {fileID: 1822978127}
@@ -3842,7 +3841,7 @@ GameObject:
   - component: {fileID: 1590992903}
   - component: {fileID: 1590992902}
   m_Layer: 0
-  m_Name: Platforms
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5277,7 +5276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d04063a7fb94e4fa69463b8dfbbb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 
 --- !u!1 &2047184122
 GameObject:
   m_ObjectHideFlags: 0
