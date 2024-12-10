@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool hasShield = false;
     private string bubble;
 
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +80,8 @@ public class PlayerController : MonoBehaviour
             //if player size is larger or greater than enemy size
             if(transform.localScale.sqrMagnitude >= other.transform.localScale.sqrMagnitude)
             {
+                audioSource = GetComponent<AudioSource>();
+                audioSource.Play();
                 //destroy the enemy
                 other.gameObject.SetActive(false);
                 //get scale rate by adding the 30% of the enemy scale
