@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     //add a LoadDifficultLevel method
     public void LoadDifficultLevel()
     {
-        PlayerPrefs.SetString("Level", "Easy");
+        PlayerPrefs.SetString("Level", "Difficult");
         SceneManager.LoadSceneAsync(1);
     }
 

@@ -121,6 +121,8 @@ public class GameManager : MonoBehaviour
         if (randomX == 11.0f) fishSpawn.transform.Rotate(0, 180, 0);
     }
 
+
+
     //update player life method
     public void UpdatePlayerLife()
     {
