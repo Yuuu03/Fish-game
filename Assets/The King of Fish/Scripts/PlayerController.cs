@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 movementInput;
     private float playerSize;
     private Vector2 maximumSize = new Vector2(7.0f, 7.0f);
-        
+
     //variables for power ups
     private float accelerationTime = 0;
     private float shieldTime = 0;
@@ -24,8 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //initialize Rigidbody
-        rb2d = GetComponent<Rigidbody2D>();  
-
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -145,9 +144,17 @@ public class PlayerController : MonoBehaviour
     private void UpdateFacingDirection()
     {
         //flip the sprite based on the player movement
-        var scale = transform.localScale;
-        if (!Mathf.Approximately(movementInput.x, 0)) scale.x = Mathf.Abs(scale.x) * Mathf.Sign(movementInput.x);
-        transform.localScale = scale;
+        if (!Mathf.Approximately(movementInput.x, 0))
+        {
+            if (movementInput.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else if (movementInput.x > 0)
+            {
+                transform.rotation = Quaternion.Euler(0,0,0);
+            }
+        } 
     }
 
     private void CheckPlayerSize()
