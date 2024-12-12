@@ -13,7 +13,8 @@ public class GameManager : MonoBehaviour
     //a property that holds a refernce to an instance of the Game Manager class
     public static GameManager Instance {  get; private set; }
     public string level;
-    public bool gameOver = false;   
+    public bool gameOver = false;
+    public bool winStatus = true;
     public float timeLeft = 300f;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
     public Image[] liveIcon;
     public Sprite fullLife;
     public Sprite emptyLife;
-    
+ 
     //reference to enemy prefab
     public GameObject[] EnemyPrefab;
 
@@ -130,7 +131,11 @@ public class GameManager : MonoBehaviour
         live -= 1;
         Debug.Log("Lose one life!");
         //if player life is less than or euqal to 0
-        if (live <= 0) GameOver();
+        if (live <= 0)
+        {
+            winStatus = false;
+            GameOver();
+        }
     }
 
     //update player score method
@@ -160,6 +165,7 @@ public class GameManager : MonoBehaviour
             //set time left to zero if there is no time left
             else
             {
+                winStatus = false;
                 timeLeft = 0;
             }            
         }        
@@ -186,7 +192,7 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         Debug.Log("Game is over!");
         //load game over scene
-        SceneManager.LoadSceneAsync(2);
+        SceneManager.LoadSceneAsync(2);        
         //save score to playerprefs
         PlayerPrefs.SetInt("Score", score);
     }
