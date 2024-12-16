@@ -27,7 +27,6 @@ public class BubbleManager : MonoBehaviour
             SpawnBubble();
             yield return new WaitForSeconds(spawnRate);
         }
-        
     }
 
     private void SpawnBubble()

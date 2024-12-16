@@ -45,8 +45,6 @@ public class GameManager : MonoBehaviour
         {
             //set the object's instance of the Game Manager class to be the instance
             Instance = this;
-            //make the game manager persistent
-            //DontDestroyOnLoad(this.gameObject);
         }     
         
     }
