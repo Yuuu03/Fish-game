@@ -192,7 +192,9 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         Debug.Log("Game is over!");
         //load game over scene
-        SceneManager.LoadSceneAsync(2);        
+        SceneManager.LoadSceneAsync(2);      
+        //save winStatus to playerprefs
+        PlayerPrefs.SetInt("WinStatus", winStatus ? 1 : 0);
         //save score to playerprefs
         PlayerPrefs.SetInt("Score", score);
     }

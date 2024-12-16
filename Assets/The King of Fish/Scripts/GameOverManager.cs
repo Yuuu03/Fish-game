@@ -2,25 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Microsoft.Unity.VisualStudio.Editor;
 using Image = UnityEngine.UI.Image;
 
 
 public class GameOverManager : MonoBehaviour
 {
     public TextMeshProUGUI finalScoreText;
-    private GameManager gameManager;
     public Image loseImage;
     public Image winImage;
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
-        loseImage = GetComponent<Image>();
-        winImage = GetComponent<Image>();
+        int winStatus = PlayerPrefs.GetInt("WinStatus", 0);
+
         loseImage.gameObject.SetActive(false);
         winImage.gameObject.SetActive(false);
-        if (gameManager.winStatus == false)
+
+        if (winStatus == 0)
         {
             loseImage.gameObject.SetActive(true);
         }
