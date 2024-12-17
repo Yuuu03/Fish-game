@@ -5,10 +5,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public Vector2 sizeRange;
+    public string level;
     [HideInInspector] public float enemySize;
     [SerializeField] private float speed = 2.0f;
     void Start()
     {
+        level = PlayerPrefs.GetString("Level", "None");
         //spawn fish at random size
         sizeRange = GetSizeRange();
         enemySize = Random.Range(sizeRange.x, sizeRange.y);
@@ -24,18 +26,42 @@ public class Enemy : MonoBehaviour
     //a method to get enemy spawn at different size range in different time period
     private Vector2 GetSizeRange()
     {
-        //if time remaining is greater than 4 minutes
-        if(GameManager.Instance.timeLeft > 240)
+        if(level == "Easy")
         {
-            return new Vector2(0.5f, 2.0f);
+            //if time remaining is greater than 2 minutes
+            if (GameManager.Instance.timeLeft > 240)
+            {
+                return new Vector2(0.5f, 2.0f);
+            }
+            else if (GameManager.Instance.timeLeft > 120)
+            {
+                return new Vector2(0.5f, 5.0f);
+            }
+            else
+            {
+                return new Vector2(0.5f, 7.0f);
+            }
         }
-        else if(GameManager.Instance.timeLeft > 120)
+        else if(level == "Difficult")
         {
-            return new Vector2(0.5f, 5.0f);
+            //if time remaining is greater than 2 minutes
+            if (GameManager.Instance.timeLeft > 120)
+            {
+                return new Vector2(0.5f, 2.0f);
+            }
+            else if (GameManager.Instance.timeLeft > 60)
+            {
+                return new Vector2(0.5f, 5.0f);
+            }
+            else
+            {
+                return new Vector2(0.5f, 7.0f);
+            }
         }
         else
         {
-            return new Vector2(0.5f, 7.0f);
+            return new Vector2(0.5f, 5.0f);
         }
+             
     }
 }

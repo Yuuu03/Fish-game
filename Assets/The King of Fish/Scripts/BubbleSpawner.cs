@@ -7,8 +7,8 @@ public class BubbleManager : MonoBehaviour
     //reference to bubble prefabs
     public GameObject[] bubblePrefabs;
     //variables for bubble spawn
-    public float spawnRate = 5f;
-    public float spawnTime = 10f;
+    public float spawnRate = 30f;
+    public float spawnTime = 30f;
     private GameObject bubbleSpawn;
     private GameObject bubble;
 

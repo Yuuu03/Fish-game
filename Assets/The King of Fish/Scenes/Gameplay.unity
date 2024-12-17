@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 85513194}
   - component: {fileID: 85513196}
   - component: {fileID: 85513195}
-  - component: {fileID: 85513197}
   m_Layer: 5
   m_Name: GoalText
   m_TagString: Untagged
@@ -258,18 +257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85513193}
   m_CullTransparentMesh: 1
---- !u!114 &85513197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85513193}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ad315d1b792f58459a6c627c3cbd8a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &290271417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3383,7 +3370,6 @@ MonoBehaviour:
   scoreText: {fileID: 713341385}
   goalText: {fileID: 85513195}
   score: 0
-  spawnRate: 3
   live: 3
   liveIcon:
   - {fileID: 1214559450}
@@ -4070,8 +4056,8 @@ MonoBehaviour:
   - {fileID: 5165501483107581898, guid: b7d0c116145a46c48802388288c45fc6, type: 3}
   - {fileID: 2654745976751597875, guid: d419c4cedd7670b458774e63131623f4, type: 3}
   - {fileID: 1995633625920669769, guid: 246452ef81fd7ae4bb979b7f0a46be4c, type: 3}
-  spawnRate: 5
-  spawnTime: 10
+  spawnRate: 30
+  spawnTime: 30
 --- !u!4 &1404511599
 Transform:
   m_ObjectHideFlags: 0

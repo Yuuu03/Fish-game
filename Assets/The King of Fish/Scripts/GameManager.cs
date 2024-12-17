@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int score = 0;
     //variables for enemy spawn
     private float randomX;
-    public float spawnRate;
+    private float spawnRate;
     private GameObject fishSpawn;
     //variables for player health
     public int live = 3;
@@ -62,15 +62,15 @@ public class GameManager : MonoBehaviour
         if(level == "Easy")
         {
             //Set spawn rate and time left
-            spawnRate = 5f;
-            timeLeft = 480f;
+            spawnRate = 1.5f;
+            timeLeft = 300f;
             Debug.Log("The current level is Easy.");
         }
         else if(level == "Difficult")
         {
             //Set spawn rate the time left if level is difficult
-            spawnRate = 3f;
-            timeLeft = 300f;
+            spawnRate = 2.5f;
+            timeLeft = 180f;
             Debug.Log("The current level is Difficult.");
         }
         else
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
         //if enemy prefab is not null
         if (EnemyPrefab.Length > 0)
         {
-            InvokeRepeating("SpawnFish", spawnRate, spawnRate);
+            InvokeRepeating("SpawnFish", 1.0f, spawnRate);
         }
         else
         {
