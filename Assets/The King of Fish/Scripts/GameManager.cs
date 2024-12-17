@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public float timeLeft = 300f;
     public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI goalText;
+    Color col;
     [HideInInspector] public int score = 0;
     //variables for enemy spawn
     private float randomX;
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        col = goalText.color;
+
         level = PlayerPrefs.GetString("Level", "None");
 
         //if Level is equal to Easy
@@ -92,6 +96,14 @@ public class GameManager : MonoBehaviour
         UpdateScoreText();
         //call UpdateTimeText method to update the time constantly
         UpdateTimeText();
+
+        //fade out goal text
+        if(col.a > 0)
+        {
+            col.a -= Time.deltaTime/5.0f;
+            goalText.color = col;
+        }
+
         //stop spawning fish if game is over
         if (gameOver == true) CancelInvoke("SpawnFish");
 
