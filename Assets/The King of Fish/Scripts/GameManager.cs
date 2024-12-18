@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         else if(level == "Difficult")
         {
             //Set spawn rate the time left if level is difficult
-            spawnRate = 2.5f;
+            spawnRate = 2f;
             timeLeft = 180f;
             Debug.Log("The current level is Difficult.");
         }

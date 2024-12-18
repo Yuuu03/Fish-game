@@ -3440,7 +3440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 5
-  scaleRate: 1.2
+  scaleRate: 1.1
 --- !u!114 &1292975850
 MonoBehaviour:
   m_ObjectHideFlags: 0

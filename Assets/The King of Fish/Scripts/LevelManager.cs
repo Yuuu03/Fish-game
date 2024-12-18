@@ -24,6 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Menu screen is loaded!");
         SceneManager.LoadSceneAsync(0);
+        Time.timeScale = 1;
     }
 
     //add a play game method to load test level scene
@@ -31,6 +32,8 @@ public class LevelManager : MonoBehaviour
     {
         Debug.Log("Game starts!");
         SceneManager.LoadSceneAsync(1);
+        Time.timeScale = 1;
+
     }
     //add a exit game method
     public void QuitGame()

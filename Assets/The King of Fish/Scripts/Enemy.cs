@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
             //if time remaining is greater than 2 minutes
             if (GameManager.Instance.timeLeft > 240)
             {
-                return new Vector2(0.5f, 2.0f);
+                return new Vector2(0.5f, 1.5f);
             }
             else if (GameManager.Instance.timeLeft > 120)
             {
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
             //if time remaining is greater than 2 minutes
             if (GameManager.Instance.timeLeft > 120)
             {
-                return new Vector2(0.5f, 2.0f);
+                return new Vector2(0.5f, 1.5f);
             }
             else if (GameManager.Instance.timeLeft > 60)
             {

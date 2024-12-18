@@ -1,47 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 public class MusicController : MonoBehaviour
 {
-    public static MusicController Instance {  get; private set; } 
-    private AudioSource audioSource;
-    public Image musicIcon;
-    private bool musicOn = true;
+    [SerializeField] private Image musicOnIcon;
+    [SerializeField] private Image musicOffIcon;
+    private bool muted = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    private void Awake()
-    {
-        if(Instance != null && Instance != this)
+        if (!PlayerPrefs.HasKey("muted"))
         {
-            Destroy(this.gameObject);
+            PlayerPrefs.SetInt("muted", 0);
+            Load();
         }
         else
         {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            Load();
         }
+
+        UpdateMusicIcon();
+        AudioListener.pause = muted;
     }
 
-    public void PlayMusic()
+    public void OnButtonPress()
     {
-        if (musicOn)
+        Debug.Log("Button clicked!");
+        muted =! muted;
+        AudioListener.pause = muted;
+
+        Save();
+        UpdateMusicIcon();
+    }
+
+    private void UpdateMusicIcon()
+    {
+        if (muted == false)
         {
-            audioSource.Pause();
-            musicIcon.gameObject.SetActive(false);
+            musicOnIcon.enabled = true;
+            musicOffIcon.enabled = false;
+            Debug.Log("Music On Icon Enabled, Music Off Icon Disabled");
         }
         else
         {
-            audioSource.Play();
-            musicIcon.gameObject.SetActive(true);
+            musicOnIcon.enabled = false;
+            musicOffIcon.enabled = true;
+            Debug.Log("Music Off Icon Enabled, Music On Icon Disabled");
         }
-        musicOn =! musicOn;
     }
-   
+
+    private void Load()
+    {
+        muted = PlayerPrefs.GetInt("muted") == 1;
+    }
+
+    private void Save()
+    {
+        PlayerPrefs.SetInt("muted", muted ? 1 : 0);
+    }
+
 }

@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     //variables for player
     [SerializeField] private float movementSpeed = 5.0f;
-    [SerializeField] private float scaleRate;
+    private float scaleRate = 1.0f;
     private Rigidbody2D rb2d;
     private Vector2 movementInput;
     private float playerSize;
@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
                 audioSource.Play();
                 //destroy the enemy
                 other.gameObject.SetActive(false);
-                //get scale rate by adding the 30% of the enemy scale
-                scaleRate += (other.transform.localScale.sqrMagnitude) / 30f;
+                //get scale rate by adding the 2% of the enemy scale
+                scaleRate += (other.transform.localScale.sqrMagnitude) / 50f;
                 //increase player scale
                 transform.localScale = Vector3.one * scaleRate;
                 //update player score
