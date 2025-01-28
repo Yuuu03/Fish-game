@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        col = goalText.color;
+        Color color = goalText.color;
+        col = color;
 
         level = PlayerPrefs.GetString("Level", "None");
 
@@ -132,8 +133,6 @@ public class GameManager : MonoBehaviour
         if (randomX == 11.0f) fishSpawn.transform.Rotate(0, 180, 0);
     }
 
-
-
     //update player life method
     public void UpdatePlayerLife()
     {
@@ -195,6 +194,8 @@ public class GameManager : MonoBehaviour
         //display time in the screen
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
+
+   
 
     //game over method
     public void GameOver()

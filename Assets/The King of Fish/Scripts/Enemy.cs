@@ -6,8 +6,10 @@ public class Enemy : MonoBehaviour
 {
     public Vector2 sizeRange;
     public string level;
+
     [HideInInspector] public float enemySize;
     [SerializeField] private float speed = 2.0f;
+
     void Start()
     {
         level = PlayerPrefs.GetString("Level", "None");
@@ -22,11 +24,11 @@ public class Enemy : MonoBehaviour
     {
         //move enemy
         transform.position += transform.right * speed * Time.deltaTime;
-    }   
+    }
     //a method to get enemy spawn at different size range in different time period
     private Vector2 GetSizeRange()
     {
-        if(level == "Easy")
+        if (level == "Easy")
         {
             //if time remaining is greater than 2 minutes
             if (GameManager.Instance.timeLeft > 240)
@@ -42,7 +44,7 @@ public class Enemy : MonoBehaviour
                 return new Vector2(0.5f, 7.0f);
             }
         }
-        else if(level == "Difficult")
+        else if (level == "Difficult")
         {
             //if time remaining is greater than 2 minutes
             if (GameManager.Instance.timeLeft > 120)
@@ -62,6 +64,8 @@ public class Enemy : MonoBehaviour
         {
             return new Vector2(0.5f, 5.0f);
         }
-             
+
     }
 }
+
+
