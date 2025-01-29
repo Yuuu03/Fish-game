@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2751096291112152992}
   - component: {fileID: 1780376047136019665}
   - component: {fileID: 5306348023800817784}
+  - component: {fileID: 7377097573633686418}
   m_Layer: 0
   m_Name: Acceleration
   m_TagString: Bubble
@@ -135,3 +136,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleType: acceleration
   speed: 1.5
+--- !u!114 &7377097573633686418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165501483107581898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9ea6522a058af43a0bb8efc819d50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

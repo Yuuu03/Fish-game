@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2653116817450332156}
   - component: {fileID: -9046618746538083742}
   - component: {fileID: -5538359736557683525}
+  - component: {fileID: -2656098914984555545}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Bubble
@@ -135,3 +136,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubbleType: shield
   speed: 1.5
+--- !u!114 &-2656098914984555545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995633625920669769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9ea6522a058af43a0bb8efc819d50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

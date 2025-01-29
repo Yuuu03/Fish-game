@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 150044664645717620}
   - component: {fileID: -5692213697484454843}
   - component: {fileID: -324623574558058058}
+  - component: {fileID: 977645529046738454}
   m_Layer: 0
   m_Name: smallFish3
   m_TagString: Enemy
@@ -175,3 +176,15 @@ MonoBehaviour:
   level: 
   enemySize: 0
   speed: 2
+--- !u!114 &977645529046738454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408219819575610161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9ea6522a058af43a0bb8efc819d50c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
